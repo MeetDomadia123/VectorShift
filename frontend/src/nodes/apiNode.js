@@ -12,13 +12,13 @@ export const ApiNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode id={id} title="API" handles={handles}>
+    <BaseNode id={id} title="API" nodeType="api" handles={handles}>
       <label>
-        URL:
+        URL
         <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://..." />
       </label>
       <label>
-        Method:
+        Method
         <select value={method} onChange={(e) => setMethod(e.target.value)}>
           <option value="GET">GET</option>
           <option value="POST">POST</option>

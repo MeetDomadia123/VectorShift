@@ -11,13 +11,13 @@ export const InputNode = ({ id, data }) => {
   ];
 
   return (
-    <BaseNode id={id} title="Input" handles={handles}>
+    <BaseNode id={id} title="Input" nodeType="input" handles={handles}>
       <label>
-        Name:
+        Name
         <input type="text" value={currName} onChange={(e) => setCurrName(e.target.value)} />
       </label>
       <label>
-        Type:
+        Type
         <select value={inputType} onChange={(e) => setInputType(e.target.value)}>
           <option value="Text">Text</option>
           <option value="File">File</option>

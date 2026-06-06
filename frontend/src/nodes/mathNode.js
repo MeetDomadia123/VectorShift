@@ -12,9 +12,9 @@ export const MathNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode id={id} title="Math" handles={handles}>
+    <BaseNode id={id} title="Math" nodeType="math" handles={handles}>
       <label>
-        Operation:
+        Operation
         <select value={operation} onChange={(e) => setOperation(e.target.value)}>
           <option value="add">Add (+)</option>
           <option value="subtract">Subtract (-)</option>

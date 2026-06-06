@@ -6,7 +6,7 @@ const VAR_REGEX = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
-  const [dimensions, setDimensions] = useState({ width: 200, height: 80 });
+  const [dimensions, setDimensions] = useState({ width: 220, height: 'auto' });
   const textareaRef = useRef(null);
 
   const variables = useMemo(() => {
@@ -26,9 +26,9 @@ export const TextNode = ({ id, data }) => {
     const el = textareaRef.current;
     if (el) {
       el.style.height = 'auto';
-      const newHeight = Math.max(80, el.scrollHeight + 50);
-      const newWidth = Math.max(200, Math.min(400, value.length * 3 + 200));
-      setDimensions({ width: newWidth, height: newHeight });
+      el.style.height = el.scrollHeight + 'px';
+      const newWidth = Math.max(220, Math.min(400, value.length * 3 + 220));
+      setDimensions({ width: newWidth, height: 'auto' });
     }
   }, []);
 
@@ -37,15 +37,18 @@ export const TextNode = ({ id, data }) => {
   ];
 
   return (
-    <div style={{ width: dimensions.width, minHeight: dimensions.height }}>
-      <BaseNode id={id} title="Text" handles={outputHandle}>
-        <textarea
-          ref={textareaRef}
-          value={currText}
-          onChange={handleChange}
-          style={{ width: '100%', resize: 'none', minHeight: '40px' }}
-          rows={1}
-        />
+    <div style={{ width: dimensions.width }}>
+      <BaseNode id={id} title="Text" nodeType="text" handles={outputHandle}>
+        <label>
+          Text
+          <textarea
+            ref={textareaRef}
+            value={currText}
+            onChange={handleChange}
+            rows={1}
+            className="nodrag"
+          />
+        </label>
       </BaseNode>
       {variables.map((varName, i) => (
         <Handle

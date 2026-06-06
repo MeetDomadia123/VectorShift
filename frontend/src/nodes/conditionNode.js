@@ -12,9 +12,9 @@ export const ConditionNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode id={id} title="Condition" handles={handles}>
+    <BaseNode id={id} title="Condition" nodeType="condition" handles={handles}>
       <label>
-        Condition:
+        Condition
         <select value={condition} onChange={(e) => setCondition(e.target.value)}>
           <option value="equals">Equals</option>
           <option value="contains">Contains</option>
