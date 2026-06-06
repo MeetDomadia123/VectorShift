@@ -11,9 +11,9 @@ export const TimerNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode id={id} title="Timer" handles={handles}>
+    <BaseNode id={id} title="Timer" nodeType="timer" handles={handles}>
       <label>
-        Delay (ms):
+        Delay (ms)
         <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} min="0" />
       </label>
     </BaseNode>

@@ -5,14 +5,17 @@ export const NoteNode = ({ id }) => {
   const [text, setText] = useState('');
 
   return (
-    <BaseNode id={id} title="Note" handles={[]}>
-      <textarea
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Add a note..."
-        rows={3}
-        style={{ width: '100%', resize: 'vertical' }}
-      />
+    <BaseNode id={id} title="Note" nodeType="note" handles={[]}>
+      <label>
+        Note
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Add a note..."
+          rows={3}
+          className="nodrag"
+        />
+      </label>
     </BaseNode>
   );
 };
